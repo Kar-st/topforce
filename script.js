@@ -1,36 +1,49 @@
-document.getElementById("menuToggle").addEventListener("click", () => {
-    document.getElementById("mobileMenu").classList.toggle("hidden");
+// script.js
+
+// Reemplazá estas URLs con las de tus hojas de cálculo publicadas en formato CSV
+const arancelesURL = 'URL_CSV_DE_ARANCELES';
+const cerradoURL = 'URL_CSV_DE_CERRADO';
+
+// Función para cargar y mostrar los aranceles
+function cargarAranceles() {
+  Papa.parse(arancelesURL, {
+    download: true,
+    header: true,
+    complete: function(results) {
+      const arancelesContainer = document.getElementById("arancelesData");
+      arancelesContainer.innerHTML = "";
+      results.data.forEach(item => {
+        if (item.arancel) {
+          const li = document.createElement("li");
+          li.textContent = item.arancel;
+          arancelesContainer.appendChild(li);
+        }
+      });
+    }
   });
-  
-  // Simulación de datos desde Google Sheets
-  const horarios = [
-    "Lunes a Viernes: 8:00 a 12:00 y 15:00 a 22:00",
-    "Sábados: 9:00 a 12:00",
-    "Feriados: A designar"
-  ];
-  
-  const aranceles = [
-    "Cuota libre (Musculación): $30.000",
-    "3 veces por semana (12 clases): $26.000",
-    "Medio mes: $19.000",
-    "Semanal: $15.000",
-    "Por día: $4.000",
-    "G.A.P. 3 veces por semana: $30.000",
-    "Horarios G.A.P.: Lunes, Miércoles y Viernes 18:00 / Martes y Jueves 19:30 / Sábados 10:00",
-    "Promo G.A.P. + Gym: $2.000 de descuento si venís con otra persona",
-    "Cuotas mensuales: Del 1 al 15 de cada mes",
-    "Desde el 15: Solo medio mes habilitado"
-  ];
-  
-  function renderList(id, data) {
-    const container = document.getElementById(id);
-    data.forEach(item => {
-      const li = document.createElement("li");
-      li.textContent = item;
-      container.appendChild(li);
-    });
-  }
-  
-  renderList("horariosData", horarios);
-  renderList("arancelesData", aranceles);
-  
+}
+
+// Función para cargar y mostrar los días cerrados
+function cargarDiasCerrados() {
+  Papa.parse(cerradoURL, {
+    download: true,
+    header: true,
+    complete: function(results) {
+      const cerradoContainer = document.querySelector("#cerrado ul");
+      cerradoContainer.innerHTML = "";
+      results.data.forEach(item => {
+        if (item.dia) {
+          const li = document.createElement("li");
+          li.textContent = item.dia;
+          cerradoContainer.appendChild(li);
+        }
+      });
+    }
+  });
+}
+
+// Cargar los datos al iniciar la página
+document.addEventListener("DOMContentLoaded", function() {
+  cargarAranceles();
+  cargarDiasCerrados();
+});

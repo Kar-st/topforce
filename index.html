@@ -3,92 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Top Force Gym</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>TopForce Gym</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
 </head>
-<body class="bg-gray-100 text-gray-800 font-sans">
-  <header class="bg-black text-white p-4 flex justify-between items-center sticky top-0 z-50">
-    <h1 class="text-2xl font-bold">Top Force</h1>
-    <button id="menuToggle" class="md:hidden">☰</button>
-    <nav id="navMenu" class="hidden md:flex space-x-6 text-lg">
-      <a href="#servicios" class="hover:text-yellow-300">Servicios</a>
-      <a href="#horarios" class="hover:text-yellow-300">Horarios</a>
-      <a href="#aranceles" class="hover:text-yellow-300">Aranceles</a>
-      <a href="#cerrado" class="hover:text-yellow-300">Cerrado</a>
-      <a href="#ubicacion" class="hover:text-yellow-300">Ubicación</a>
-      <a href="#contacto" class="hover:text-yellow-300">Contacto</a>
-    </nav>
+<body>
+  <header>
+    <h1>TopForce Gym</h1>
+    <p>Albert Schweitzer 347, Bella Vista, Buenos Aires</p>
   </header>
 
-  <nav id="mobileMenu" class="md:hidden hidden bg-black text-white p-4">
-    <a href="#servicios" class="block py-2">Servicios</a>
-    <a href="#horarios" class="block py-2">Horarios</a>
-    <a href="#aranceles" class="block py-2">Aranceles</a>
-    <a href="#cerrado" class="block py-2">Cerrado</a>
-    <a href="#ubicacion" class="block py-2">Ubicación</a>
-    <a href="#contacto" class="block py-2">Contacto</a>
-  </nav>
-
-  <main class="p-4 max-w-4xl mx-auto space-y-6">
-    <section id="servicios" class="bg-white shadow-md p-6 rounded-2xl animate-fade-in">
-      <h2 class="text-2xl font-bold mb-2">💪 Servicios</h2>
-      <ul class="list-disc pl-6">
-        <li>Musculación</li>
-        <li>Spinning</li>
-        <li>GAP (Glúteos, Abdominales, Piernas)</li>
+  <main>
+    <section id="horarios">
+      <h2>Horarios</h2>
+      <ul>
+        <li>Lunes a Viernes: 8:00 - 12:00 y 15:00 - 22:00</li>
+        <li>Sábados: 9:00 - 12:00</li>
+        <li>Feriados: A designar</li>
       </ul>
     </section>
 
-    <section id="horarios" class="bg-white shadow-md p-6 rounded-2xl animate-fade-in">
-      <h2 class="text-xl font-semibold mb-2">🕒 Horarios</h2>
-      <ul class="list-disc pl-6" id="horariosData"></ul>
-    </section>
-
-    <section id="aranceles" class="bg-white shadow-md p-6 rounded-2xl animate-fade-in">
-      <h2 class="text-xl font-semibold mb-2">💸 Aranceles y Promociones</h2>
-      <ul class="list-disc pl-6 space-y-1" id="arancelesData"></ul>
-    </section>
-
-    <section id="cerrado" class="bg-white shadow-md p-6 rounded-2xl animate-fade-in">
-      <h2 class="text-xl font-semibold mb-2">❌ Días Cerrado</h2>
-      <ul class="list-disc pl-6">
-        <li>Domingos</li>
-        <li>Feriados Nacionales</li>
+    <section id="aranceles">
+      <h2>Aranceles</h2>
+      <ul id="arancelesData">
+        <li>Cargando aranceles...</li>
       </ul>
     </section>
 
-    <section id="ubicacion" class="bg-white shadow-md p-6 rounded-2xl animate-fade-in">
-      <h2 class="text-2xl font-bold mb-2">📍 Ubicación</h2>
-      <p>Albert Schweitzer 347, Bella Vista, Buenos Aires</p>
-      <div class="mt-4">
-        <iframe class="w-full h-64 rounded-xl" 
-          src="https://www.google.com/maps?q=Albert+Schweitzer+347+Bella+Vista+Buenos+Aires&output=embed"
-          allowfullscreen>
-        </iframe>
-      </div>
+    <section id="gap">
+      <h2>G.A.P.</h2>
+      <ul>
+        <li>Lunes, Miércoles y Viernes: 18:00</li>
+        <li>Martes y Jueves: 19:30</li>
+        <li>Sábados: 10:00</li>
+      </ul>
     </section>
 
-    <section id="contacto" class="bg-white shadow-md p-6 rounded-2xl animate-fade-in">
-      <h2 class="text-2xl font-bold mb-2">📞 Contacto</h2>
-      <p>Matías: <a href="tel:+541126357523" class="text-blue-600">1126357523</a></p>
-      <p>Marion: <a href="tel:+541153789903" class="text-blue-600">1153789903</a></p>
+    <section id="cerrado">
+      <h2>Días Cerrado</h2>
+      <ul>
+        <li>Cargando días cerrados...</li>
+      </ul>
     </section>
 
-    <section class="bg-white shadow-md p-6 rounded-2xl animate-fade-in">
-      <h2 class="text-2xl font-bold mb-2">📝 Inscripción / Reserva</h2>
-      <form class="space-y-4">
-        <input type="text" placeholder="Nombre completo" class="w-full p-2 border rounded-xl" required>
-        <input type="tel" placeholder="Teléfono" class="w-full p-2 border rounded-xl" required>
-        <input type="email" placeholder="Correo electrónico" class="w-full p-2 border rounded-xl">
-        <textarea placeholder="Mensaje o clase que desea reservar" class="w-full p-2 border rounded-xl"></textarea>
-        <button type="submit" class="bg-black text-white px-6 py-2 rounded-xl hover:bg-yellow-500">Enviar</button>
-      </form>
+    <section id="promo">
+      <h2>Promociones</h2>
+      <p>Si traés 2 nuevos o sumás a alguien más, te descontamos $2000 en cada cuota.</p>
+    </section>
+
+    <section id="cuotas">
+      <h2>Información sobre Cuotas</h2>
+      <p>Las cuotas mensuales se abonan del 1 al 15 de cada mes. A partir del 15, solo está habilitado medio mes.</p>
     </section>
   </main>
 
-  <footer class="bg-black text-white text-center p-4 mt-10">
-    © 2025 Top Force Gym
+  <footer>
+    <p>&copy; 2025 TopForce Gym</p>
   </footer>
 
   <script src="script.js"></script>
