@@ -1,45 +1,36 @@
-// Botón hamburguesa
 document.getElementById("menuToggle").addEventListener("click", () => {
     document.getElementById("mobileMenu").classList.toggle("hidden");
   });
   
-  // Colapsables
-  document.querySelectorAll(".toggle-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const content = btn.nextElementSibling;
-      content.classList.toggle("active");
+  // Simulación de datos desde Google Sheets
+  const horarios = [
+    "Lunes a Viernes: 8:00 a 12:00 y 15:00 a 22:00",
+    "Sábados: 9:00 a 12:00",
+    "Feriados: A designar"
+  ];
+  
+  const aranceles = [
+    "Cuota libre (Musculación): $30.000",
+    "3 veces por semana (12 clases): $26.000",
+    "Medio mes: $19.000",
+    "Semanal: $15.000",
+    "Por día: $4.000",
+    "G.A.P. 3 veces por semana: $30.000",
+    "Horarios G.A.P.: Lunes, Miércoles y Viernes 18:00 / Martes y Jueves 19:30 / Sábados 10:00",
+    "Promo G.A.P. + Gym: $2.000 de descuento si venís con otra persona",
+    "Cuotas mensuales: Del 1 al 15 de cada mes",
+    "Desde el 15: Solo medio mes habilitado"
+  ];
+  
+  function renderList(id, data) {
+    const container = document.getElementById(id);
+    data.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      container.appendChild(li);
     });
-  });
+  }
   
-  // Cargar datos desde Google Sheets
-  const SHEET_ID = "TU_ID_DE_SHEET"; // Reemplaza con tu ID real
-  const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
-  
-  fetch(SHEET_URL)
-    .then(res => res.text())
-    .then(text => {
-      const json = JSON.parse(text.substring(47).slice(0, -2));
-      const rows = json.table.rows;
-  
-      const horarios = [];
-      const aranceles = [];
-  
-      rows.forEach(row => {
-        const tipo = row.c[0]?.v;
-        const titulo = row.c[1]?.v;
-        const contenido = row.c[2]?.v;
-  
-        if (tipo === "horario") {
-          horarios.push(`<p>${titulo}: <strong>${contenido}</strong></p>`);
-        } else if (tipo === "arancel" || tipo === "promo") {
-          aranceles.push(`<p><strong>${titulo}:</strong> ${contenido}</p>`);
-        }
-      });
-  
-      document.getElementById("horarios-content").innerHTML = horarios.join("");
-      document.getElementById("aranceles-content").innerHTML = aranceles.join("");
-    })
-    .catch(err => {
-      console.error("Error al cargar datos desde Google Sheets:", err);
-    });
+  renderList("horariosData", horarios);
+  renderList("arancelesData", aranceles);
   

@@ -2,14 +2,12 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Top Force Gym</title>
   <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 text-gray-800 font-sans">
-
-  <!-- Header -->
   <header class="bg-black text-white p-4 flex justify-between items-center sticky top-0 z-50">
     <h1 class="text-2xl font-bold">Top Force</h1>
     <button id="menuToggle" class="md:hidden">☰</button>
@@ -23,7 +21,6 @@
     </nav>
   </header>
 
-  <!-- Mobile Nav -->
   <nav id="mobileMenu" class="md:hidden hidden bg-black text-white p-4">
     <a href="#servicios" class="block py-2">Servicios</a>
     <a href="#horarios" class="block py-2">Horarios</a>
@@ -34,9 +31,7 @@
   </nav>
 
   <main class="p-4 max-w-4xl mx-auto space-y-6">
-
-    <!-- Servicios -->
-    <section id="servicios" class="bg-white shadow-md p-6 rounded-2xl">
+    <section id="servicios" class="bg-white shadow-md p-6 rounded-2xl animate-fade-in">
       <h2 class="text-2xl font-bold mb-2">💪 Servicios</h2>
       <ul class="list-disc pl-6">
         <li>Musculación</li>
@@ -45,54 +40,42 @@
       </ul>
     </section>
 
-    <!-- Horarios desde Sheets -->
-    <section id="horarios" class="bg-white shadow-md p-6 rounded-2xl">
-      <button class="w-full text-left text-xl font-semibold mb-2 toggle-btn">🕒 Horarios</button>
-      <div class="toggle-content" id="horarios-content">
-        <p>Cargando horarios...</p>
-      </div>
+    <section id="horarios" class="bg-white shadow-md p-6 rounded-2xl animate-fade-in">
+      <h2 class="text-xl font-semibold mb-2">🕒 Horarios</h2>
+      <ul class="list-disc pl-6" id="horariosData"></ul>
     </section>
 
-    <!-- Aranceles y Promos desde Sheets -->
-    <section id="aranceles" class="bg-white shadow-md p-6 rounded-2xl">
-      <button class="w-full text-left text-xl font-semibold mb-2 toggle-btn">💸 Aranceles y Promociones</button>
-      <div class="toggle-content" id="aranceles-content">
-        <p>Cargando aranceles...</p>
-      </div>
+    <section id="aranceles" class="bg-white shadow-md p-6 rounded-2xl animate-fade-in">
+      <h2 class="text-xl font-semibold mb-2">💸 Aranceles y Promociones</h2>
+      <ul class="list-disc pl-6 space-y-1" id="arancelesData"></ul>
     </section>
 
-    <!-- Días Cerrado -->
-    <section id="cerrado" class="bg-white shadow-md p-6 rounded-2xl">
-      <button class="w-full text-left text-xl font-semibold mb-2 toggle-btn">❌ Días Cerrado</button>
-      <div class="toggle-content">
-        <ul class="list-disc pl-6">
-          <li>Domingos</li>
-          <li>Feriados Nacionales</li>
-        </ul>
-      </div>
+    <section id="cerrado" class="bg-white shadow-md p-6 rounded-2xl animate-fade-in">
+      <h2 class="text-xl font-semibold mb-2">❌ Días Cerrado</h2>
+      <ul class="list-disc pl-6">
+        <li>Domingos</li>
+        <li>Feriados Nacionales</li>
+      </ul>
     </section>
 
-    <!-- Ubicación -->
-    <section id="ubicacion" class="bg-white shadow-md p-6 rounded-2xl">
+    <section id="ubicacion" class="bg-white shadow-md p-6 rounded-2xl animate-fade-in">
       <h2 class="text-2xl font-bold mb-2">📍 Ubicación</h2>
-      <p>Albert Schweitzer, Bella Vista, Provincia de Buenos Aires</p>
+      <p>Albert Schweitzer 347, Bella Vista, Buenos Aires</p>
       <div class="mt-4">
         <iframe class="w-full h-64 rounded-xl" 
-          src="https://www.google.com/maps/embed/v1/place?key=TU_API_KEY&q=Top+Force+Gym,Albert+Schweitzer,Bella+Vista"
+          src="https://www.google.com/maps?q=Albert+Schweitzer+347+Bella+Vista+Buenos+Aires&output=embed"
           allowfullscreen>
         </iframe>
       </div>
     </section>
 
-    <!-- Contacto -->
-    <section id="contacto" class="bg-white shadow-md p-6 rounded-2xl">
+    <section id="contacto" class="bg-white shadow-md p-6 rounded-2xl animate-fade-in">
       <h2 class="text-2xl font-bold mb-2">📞 Contacto</h2>
       <p>Matías: <a href="tel:+541126357523" class="text-blue-600">1126357523</a></p>
       <p>Marion: <a href="tel:+541153789903" class="text-blue-600">1153789903</a></p>
     </section>
 
-    <!-- Formulario -->
-    <section class="bg-white shadow-md p-6 rounded-2xl">
+    <section class="bg-white shadow-md p-6 rounded-2xl animate-fade-in">
       <h2 class="text-2xl font-bold mb-2">📝 Inscripción / Reserva</h2>
       <form class="space-y-4">
         <input type="text" placeholder="Nombre completo" class="w-full p-2 border rounded-xl" required>
@@ -102,7 +85,6 @@
         <button type="submit" class="bg-black text-white px-6 py-2 rounded-xl hover:bg-yellow-500">Enviar</button>
       </form>
     </section>
-
   </main>
 
   <footer class="bg-black text-white text-center p-4 mt-10">
