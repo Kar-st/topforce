@@ -493,4 +493,150 @@ footer {
   .services-grid, .pricing-grid {
       grid-template-columns: 1fr;
   }
+  /* Añade esto al final del archivo CSS */
+
+@media (max-width: 480px) {
+  /* Header ajustado */
+  header {
+      padding: 10px 0;
+  }
+  
+  .logo {
+      height: 40px;
+      margin-right: 10px;
+  }
+  
+  .logo-text h1 {
+      font-size: 18px;
+  }
+  
+  .logo-text p {
+      font-size: 12px;
+  }
+  
+  /* Hero section optimizada */
+  .hero {
+      padding-top: 70px;
+      height: auto;
+      min-height: 80vh;
+  }
+  
+  .hero h2 {
+      font-size: 28px;
+      margin-bottom: 15px;
+  }
+  
+  .hero p {
+      font-size: 16px;
+      margin-bottom: 20px;
+  }
+  
+  .cta-button {
+      padding: 10px 20px;
+      font-size: 16px;
+  }
+  
+  /* Servicios en columna */
+  .services-grid {
+      grid-template-columns: 1fr;
+      gap: 15px;
+  }
+  
+  .service-card {
+      padding: 20px;
+  }
+  
+  .service-card i {
+      font-size: 40px;
+  }
+  
+  /* Horarios mejor organizados */
+  .schedule-container {
+      grid-template-columns: 1fr;
+      gap: 15px;
+  }
+  
+  .schedule-card {
+      padding: 20px;
+  }
+  
+  /* Precios en columna */
+  .pricing-grid {
+      grid-template-columns: 1fr;
+      gap: 15px;
+  }
+  
+  .price-card {
+      padding: 20px;
+  }
+  
+  /* Contacto en columna */
+  .contact-container {
+      grid-template-columns: 1fr;
+      gap: 30px;
+  }
+  
+  /* Formulario optimizado */
+  .form-group input,
+  .form-group textarea {
+      padding: 10px;
+  }
+  
+  /* Footer ajustado */
+  .footer-content {
+      flex-direction: column;
+      text-align: center;
+  }
+  
+  .footer-logo {
+      justify-content: center;
+      margin-bottom: 20px;
+  }
+  
+  .social-links {
+      justify-content: center;
+      margin-top: 20px;
+  }
+  
+  /* Mejoras específicas para móviles pequeños */
+  @media (max-width: 360px) {
+      .hero h2 {
+          font-size: 24px;
+      }
+      
+      .hero p {
+          font-size: 14px;
+      }
+      
+      .container {
+          width: 95%;
+          padding: 0 10px;
+      }
+  }
+  
+  /* Ajuste del menú hamburguesa */
+  .burger {
+      font-size: 20px;
+  }
+  
+  .nav-links {
+      top: 70px;
+      height: calc(100vh - 70px);
+  }
+  
+  /* Mejora en los márgenes generales */
+  .services, .schedule, .pricing, .contact {
+      padding: 50px 0;
+  }
+  
+  h2 {
+      font-size: 28px;
+      margin-bottom: 30px;
+  }
+  
+  /* Ajuste de tarjetas */
+  .service-card, .schedule-card, .price-card {
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  }
+}
 }
