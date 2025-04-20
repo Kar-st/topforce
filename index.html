@@ -1,79 +1,187 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Top Force Gym</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Force Gym - Bella Vista</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <header class="header">
-    <img src="logo.png" alt="Top Force Logo" class="logo">
-    <h1>Top Force Gym</h1>
-    <p>Albert Schweitzer 347, Bella Vista, Buenos Aires</p>
-  </header>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <img src="logo.png" alt="Top Force Gym Logo" class="logo">
+                <div class="logo-text">
+                    <h1>TOP FORCE</h1>
+                    <p>GYM & FITNESS</p>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#horarios">Horarios</a></li>
+                    <li><a href="#precios">Precios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <div class="burger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-  <main>
-    <section class="card">
-      <h2>🏋️ Servicios</h2>
-      <ul>
-        <li>Musculación</li>
-        <li>Spinning</li>
-        <li>G.A.P. (Glúteos, Abdominales, Piernas)</li>
-      </ul>
-    </section>
+    <main>
+        <section id="inicio" class="hero">
+            <div class="container">
+                <h2>ENTRENA CON NOSOTROS</h2>
+                <p>El mejor gimnasio de Bella Vista con instalaciones modernas y profesionales calificados</p>
+                <a href="#contacto" class="cta-button">ÚNETE HOY</a>
+            </div>
+        </section>
 
-    <section class="card">
-      <h2>🕒 Horarios</h2>
-      <ul>
-        <li>Lunes a Viernes: 8:00 - 12:00 y 15:00 - 22:00</li>
-        <li>Sábados: 9:00 - 12:00</li>
-        <li>Feriados: A designar</li>
-      </ul>
-    </section>
+        <section id="servicios" class="services">
+            <div class="container">
+                <h2>NUESTROS SERVICIOS</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-dumbbell"></i>
+                        <h3>Musculación</h3>
+                        <p>Área de máquinas y pesos libres con equipos de última generación</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-running"></i>
+                        <h3>G.A.P.</h3>
+                        <p>Clases grupales de Glúteos, Abdominales y Piernas</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Promociones</h3>
+                        <p>Trae a un amigo y obtén descuentos en tu cuota</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section class="card">
-      <h2>💸 Aranceles</h2>
-      <ul id="arancelesData">
-        <li>Cargando aranceles...</li>
-      </ul>
-    </section>
+        <section id="horarios" class="schedule">
+            <div class="container">
+                <h2>HORARIOS</h2>
+                <div class="schedule-container">
+                    <div class="schedule-card">
+                        <h3>Musculación</h3>
+                        <ul>
+                            <li><strong>Lunes a Viernes:</strong> 8:00 - 12:00 / 15:00 - 22:00</li>
+                            <li><strong>Sábados:</strong> 9:00 - 12:00</li>
+                            <li><strong>Feriados:</strong> A designar</li>
+                        </ul>
+                    </div>
+                    <div class="schedule-card">
+                        <h3>G.A.P.</h3>
+                        <ul>
+                            <li><strong>Lunes, Miércoles, Viernes:</strong> 18:00</li>
+                            <li><strong>Martes, Jueves:</strong> 19:30</li>
+                            <li><strong>Sábados:</strong> 10:00</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section class="card" id="cerrado">
-      <h2>❌ Días Cerrado</h2>
-      <ul>
-        <li>Cargando días cerrados...</li>
-      </ul>
-    </section>
+        <section id="precios" class="pricing">
+            <div class="container">
+                <h2>PLANES Y PRECIOS</h2>
+                <div class="pricing-grid">
+                    <div class="price-card">
+                        <h3>Cuota Libre</h3>
+                        <p class="price">$30.000</p>
+                        <p>Musculación sin restricciones</p>
+                    </div>
+                    <div class="price-card">
+                        <h3>3 veces por semana</h3>
+                        <p class="price">$26.000</p>
+                        <p>12 clases mensuales</p>
+                    </div>
+                    <div class="price-card">
+                        <h3>Medio mes</h3>
+                        <p class="price">$19.000</p>
+                        <p>Acceso por 15 días</p>
+                    </div>
+                    <div class="price-card">
+                        <h3>Semanal</h3>
+                        <p class="price">$15.000</p>
+                        <p>7 días de acceso</p>
+                    </div>
+                    <div class="price-card">
+                        <h3>Por día</h3>
+                        <p class="price">$4.000</p>
+                        <p>Acceso por un día</p>
+                    </div>
+                    <div class="price-card highlight">
+                        <h3>G.A.P. 3x semana</h3>
+                        <p class="price">$30.000</p>
+                        <p>Clases grupales + Gym libre</p>
+                        <p class="promo">Promoción: Trae un amigo y obtén $2.000 de descuento en cada cuota</p>
+                    </div>
+                </div>
+                <div class="payment-info">
+                    <p><strong>Nota:</strong> Las cuotas mensuales se pagan del 1 al 15 de cada mes. A partir del 15 solo está habilitado medio mes.</p>
+                </div>
+            </div>
+        </section>
 
-    <section class="card">
-      <h2>🔥 Promociones</h2>
-      <p>Si traés 2 nuevos o sumás a alguien más, te descontamos $2000 en cada cuota.</p>
-    </section>
+        <section id="contacto" class="contact">
+            <div class="container">
+                <h2>CONTACTO</h2>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>VISÍTANOS</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Albert Schweitzer 347, Bella Vista, Buenos Aires</p>
+                        <h3>HORARIO DE ATENCIÓN</h3>
+                        <p><i class="far fa-clock"></i> Lunes a Viernes: 8:00 - 12:00 / 15:00 - 22:00</p>
+                        <p><i class="far fa-clock"></i> Sábados: 9:00 - 12:00</p>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <input type="text" id="name" placeholder="Nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" placeholder="Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="phone" placeholder="Teléfono">
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" placeholder="Mensaje" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">ENVIAR MENSAJE</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <section class="card">
-      <h2>💬 Cuotas</h2>
-      <p>Las cuotas mensuales se abonan del 1 al 15 de cada mes. Desde el 15, solo medio mes habilitado.</p>
-    </section>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo.png" alt="Top Force Gym Logo" class="logo">
+                    <h3>TOP FORCE GYM</h3>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Top Force Gym. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
 
-    <section class="card">
-      <h2>📝 Inscripción</h2>
-      <form>
-        <input type="text" placeholder="Nombre completo" required>
-        <input type="tel" placeholder="Teléfono" required>
-        <input type="email" placeholder="Correo electrónico">
-        <textarea placeholder="Mensaje o clase que desea reservar"></textarea>
-        <button type="submit">Enviar</button>
-      </form>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2025 Top Force Gym</p>
-  </footer>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
