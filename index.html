@@ -1,21 +1,32 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TopForce Gym</title>
+  <title>Top Force Gym</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
 </head>
 <body>
-  <header>
-    <h1>TopForce Gym</h1>
+  <header class="header">
+    <img src="logo.png" alt="Top Force Logo" class="logo">
+    <h1>Top Force Gym</h1>
     <p>Albert Schweitzer 347, Bella Vista, Buenos Aires</p>
   </header>
 
   <main>
-    <section id="horarios">
-      <h2>Horarios</h2>
+    <section class="card">
+      <h2>🏋️ Servicios</h2>
+      <ul>
+        <li>Musculación</li>
+        <li>Spinning</li>
+        <li>G.A.P. (Glúteos, Abdominales, Piernas)</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>🕒 Horarios</h2>
       <ul>
         <li>Lunes a Viernes: 8:00 - 12:00 y 15:00 - 22:00</li>
         <li>Sábados: 9:00 - 12:00</li>
@@ -23,42 +34,44 @@
       </ul>
     </section>
 
-    <section id="aranceles">
-      <h2>Aranceles</h2>
+    <section class="card">
+      <h2>💸 Aranceles</h2>
       <ul id="arancelesData">
         <li>Cargando aranceles...</li>
       </ul>
     </section>
 
-    <section id="gap">
-      <h2>G.A.P.</h2>
-      <ul>
-        <li>Lunes, Miércoles y Viernes: 18:00</li>
-        <li>Martes y Jueves: 19:30</li>
-        <li>Sábados: 10:00</li>
-      </ul>
-    </section>
-
-    <section id="cerrado">
-      <h2>Días Cerrado</h2>
+    <section class="card" id="cerrado">
+      <h2>❌ Días Cerrado</h2>
       <ul>
         <li>Cargando días cerrados...</li>
       </ul>
     </section>
 
-    <section id="promo">
-      <h2>Promociones</h2>
+    <section class="card">
+      <h2>🔥 Promociones</h2>
       <p>Si traés 2 nuevos o sumás a alguien más, te descontamos $2000 en cada cuota.</p>
     </section>
 
-    <section id="cuotas">
-      <h2>Información sobre Cuotas</h2>
-      <p>Las cuotas mensuales se abonan del 1 al 15 de cada mes. A partir del 15, solo está habilitado medio mes.</p>
+    <section class="card">
+      <h2>💬 Cuotas</h2>
+      <p>Las cuotas mensuales se abonan del 1 al 15 de cada mes. Desde el 15, solo medio mes habilitado.</p>
+    </section>
+
+    <section class="card">
+      <h2>📝 Inscripción</h2>
+      <form>
+        <input type="text" placeholder="Nombre completo" required>
+        <input type="tel" placeholder="Teléfono" required>
+        <input type="email" placeholder="Correo electrónico">
+        <textarea placeholder="Mensaje o clase que desea reservar"></textarea>
+        <button type="submit">Enviar</button>
+      </form>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 TopForce Gym</p>
+    <p>© 2025 Top Force Gym</p>
   </footer>
 
   <script src="script.js"></script>
