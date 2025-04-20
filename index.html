@@ -3,170 +3,491 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Top Force Gym</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="admin.css">
+    <title>Top Force Gym - Netflix Style</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Estilo Netflix */
+        :root {
+            --netflix-red: #e50914;
+            --netflix-dark: #141414;
+            --netflix-dark-light: #2d2d2d;
+            --netflix-text: #e5e5e5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--netflix-dark);
+            color: var(--netflix-text);
+            line-height: 1.4;
+        }
+        
+        /* Header estilo Netflix */
+        header {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 10%, transparent);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.4s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        header.scrolled {
+            background-color: var(--netflix-dark);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-left: 50px;
+        }
+        
+        .logo {
+            height: 60px;
+            margin-right: 15px;
+        }
+        
+        .logo-text h1 {
+            margin: 0;
+            font-size: 28px;
+            color: var(--netflix-red);
+            font-weight: 700;
+        }
+        
+        .logo-text p {
+            margin: 0;
+            font-size: 14px;
+            color: var(--netflix-text);
+        }
+        
+        nav .nav-links {
+            display: flex;
+            margin-right: 50px;
+        }
+        
+        nav .nav-links li {
+            margin-left: 20px;
+            list-style: none;
+        }
+        
+        nav .nav-links a {
+            color: var(--netflix-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 14px;
+        }
+        
+        nav .nav-links a:hover {
+            color: var(--netflix-red);
+        }
+        
+        /* Hero Section estilo Netflix */
+        .hero {
+            background: linear-gradient(to top, var(--netflix-dark) 0%, transparent 50%), 
+                        linear-gradient(to bottom, var(--netflix-dark) 0%, transparent 20%), 
+                        url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: left;
+            padding-top: 80px;
+            position: relative;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 14rem;
+            background: linear-gradient(180deg, transparent, rgba(20, 20, 20, 0.6), var(--netflix-dark));
+        }
+        
+        .hero-content {
+            z-index: 1;
+            margin-left: 50px;
+            width: 40%;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--netflix-red);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background-color: #f40612;
+        }
+        
+        /* Secciones estilo Netflix */
+        .section {
+            padding: 50px 50px;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        /* Servicios - estilo carrusel Netflix */
+        .services-container {
+            display: flex;
+            overflow-x: auto;
+            padding: 20px 0;
+            scrollbar-width: none;
+            gap: 15px;
+        }
+        
+        .services-container::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .service-card {
+            min-width: 300px;
+            background-color: var(--netflix-dark-light);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            position: relative;
+        }
+        
+        .service-card:hover {
+            transform: scale(1.05);
+            z-index: 1;
+        }
+        
+        .service-info {
+            padding: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+        
+        .service-card i {
+            font-size: 2rem;
+            color: var(--netflix-red);
+            margin-bottom: 15px;
+        }
+        
+        /* Horarios */
+        .schedule-card {
+            background-color: var(--netflix-dark-light);
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        
+        .schedule-card h3 {
+            color: var(--netflix-red);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .schedule-card ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .schedule-card ul li::before {
+            content: "•";
+            color: var(--netflix-red);
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Precios */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .price-card {
+            background-color: var(--netflix-dark-light);
+            padding: 20px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .price-card.highlight {
+            border: 2px solid var(--netflix-red);
+            position: relative;
+        }
+        
+        .price-card.highlight::after {
+            content: "POPULAR";
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background-color: var(--netflix-red);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--netflix-red);
+            margin: 15px 0;
+        }
+        
+        .promo-box {
+            background-color: rgba(229, 9, 20, 0.1);
+            padding: 15px;
+            border-left: 4px solid var(--netflix-red);
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #000;
+            color: #737373;
+            padding: 50px;
+            text-align: center;
+            border-top: 8px solid #222;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            margin: 0 10px;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--netflix-red);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                width: 80%;
+            }
+            
+            .section {
+                padding: 50px 20px;
+            }
+            
+            .logo-container {
+                margin-left: 20px;
+            }
+            
+            nav .nav-links {
+                margin-right: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="admin-container">
-        <aside class="admin-sidebar">
-            <div class="admin-logo">
-                <img src="img.png" width="350px" heights="250px" alt="Top Force Gym Logo">
-                <h2>Panel de Administración</h2>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Top Force Gym Logo" class="logo">
+            <div class="logo-text">
+                <h1>TOP FORCE</h1>
+                <p>GYM & FITNESS</p>
             </div>
-            <nav class="admin-menu">
-                <ul>
-                    <li><a href="#precios"><i class="fas fa-dollar-sign"></i> Aranceles</a></li>
-                    <li><a href="#horarios"><i class="far fa-clock"></i> Horarios</a></li>
-                    <li><a href="#promociones"><i class="fas fa-percentage"></i> Promociones</a></li>
-                    <li><a href="#textos"><i class="fas fa-text-width"></i> Textos</a></li>
-                </ul>
-            </nav>
-        </aside>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#horarios">Horarios</a></li>
+                <li><a href="#precios">Precios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <main class="admin-main">
-            <section id="precios" class="admin-section">
-                <h2><i class="fas fa-dollar-sign"></i> Modificar Aranceles</h2>
-                <form id="formPrecios">
-                    <div class="form-group">
-                        <label>Cuota Libre (Musculación)</label>
-                        <input type="text" id="precioLibre" placeholder="$30.000">
-                    </div>
-                    <div class="form-group">
-                        <label>3 veces por semana (12 clases)</label>
-                        <input type="text" id="precio3veces" placeholder="$26.000">
-                    </div>
-                    <div class="form-group">
-                        <label>Medio mes</label>
-                        <input type="text" id="precioMedioMes" placeholder="$19.000">
-                    </div>
-                    <div class="form-group">
-                        <label>Semanal</label>
-                        <input type="text" id="precioSemanal" placeholder="$15.000">
-                    </div>
-                    <div class="form-group">
-                        <label>Por día</label>
-                        <input type="text" id="precioDia" placeholder="$4.000">
-                    </div>
-                    <div class="form-group">
-                        <label>G.A.P. 3 por semana</label>
-                        <input type="text" id="precioGAP" placeholder="$30.000">
-                    </div>
-                    <button type="submit" class="admin-btn">Guardar Cambios</button>
-                </form>
-            </section>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>ENTRENA CON NOSOTROS</h2>
+            <p>El mejor gimnasio de Bella Vista con instalaciones modernas y profesionales calificados</p>
+            <a href="#contacto" class="cta-button">ÚNETE HOY</a>
+        </div>
+    </section>
 
-            <section id="horarios" class="admin-section">
-                <h2><i class="far fa-clock"></i> Modificar Horarios</h2>
-                <form id="formHorarios">
+    <!-- Servicios -->
+    <section id="servicios" class="section">
+        <h2 class="section-title">NUESTROS SERVICIOS</h2>
+        <div class="services-container">
+            <div class="service-card">
+                <div class="service-info">
+                    <i class="fas fa-dumbbell"></i>
                     <h3>Musculación</h3>
-                    <div class="form-group">
-                        <label>Lunes a Viernes (mañana)</label>
-                        <input type="text" id="horarioLvManana" placeholder="8:00 - 12:00">
-                    </div>
-                    <div class="form-group">
-                        <label>Lunes a Viernes (tarde)</label>
-                        <input type="text" id="horarioLvTarde" placeholder="15:00 - 22:00">
-                    </div>
-                    <div class="form-group">
-                        <label>Sábados</label>
-                        <input type="text" id="horarioSabados" placeholder="9:00 - 12:00">
-                    </div>
-                    <div class="form-group">
-                        <label>Feriados</label>
-                        <input type="text" id="horarioFeriados" placeholder="A designar">
-                    </div>
-
+                    <p>Área de máquinas y pesos libres con equipos de última generación</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-info">
+                    <i class="fas fa-running"></i>
                     <h3>G.A.P.</h3>
-                    <div class="form-group">
-                        <label>Lunes, Miércoles, Viernes</label>
-                        <input type="text" id="horarioGAP1" placeholder="18:00">
-                    </div>
-                    <div class="form-group">
-                        <label>Martes, Jueves</label>
-                        <input type="text" id="horarioGAP2" placeholder="19:30">
-                    </div>
-                    <div class="form-group">
-                        <label>Sábados</label>
-                        <input type="text" id="horarioGAP3" placeholder="10:00">
-                    </div>
-                    <button type="submit" class="admin-btn">Guardar Cambios</button>
-                </form>
-            </section>
+                    <p>Clases grupales de Glúteos, Abdominales y Piernas</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-info">
+                    <i class="fas fa-users"></i>
+                    <h3>Promociones</h3>
+                    <p>Trae a un amigo y obtén descuentos en tu cuota</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <section id="promociones" class="admin-section">
-                <h2><i class="fas fa-percentage"></i> Modificar Promociones</h2>
-                <form id="formPromociones">
-                    <div class="form-group">
-                        <label>Descuento por referido</label>
-                        <input type="text" id="descuentoReferido" placeholder="$2.000">
-                    </div>
-                    <div class="form-group">
-                        <label>Texto promocional</label>
-                        <textarea id="textoPromocion" placeholder="Promoción: Trae un amigo y obtén $2.000 de descuento en cada cuota"></textarea>
-                    </div>
-                    <button type="submit" class="admin-btn">Guardar Cambios</button>
-                </form>
-            </section>
+    <!-- Horarios -->
+    <section id="horarios" class="section">
+        <h2 class="section-title">HORARIOS</h2>
+        <div class="schedule-card">
+            <h3>Musculación</h3>
+            <ul>
+                <li><strong>Lunes a Viernes:</strong> 8:00 - 12:00 / 15:00 - 22:00</li>
+                <li><strong>Sábados:</strong> 9:00 - 12:00</li>
+                <li><strong>Feriados:</strong> A designar</li>
+            </ul>
+        </div>
+        <div class="schedule-card">
+            <h3>G.A.P.</h3>
+            <ul>
+                <li><strong>Lunes, Miércoles, Viernes:</strong> 18:00</li>
+                <li><strong>Martes, Jueves:</strong> 19:30</li>
+                <li><strong>Sábados:</strong> 10:00</li>
+            </ul>
+        </div>
+    </section>
 
-            <section id="textos" class="admin-section">
-                <h2><i class="fas fa-text-width"></i> Modificar Textos Destacados</h2>
-                <form id="formTextos">
-                    <div class="form-group">
-                        <label>Título principal</label>
-                        <input type="text" id="tituloPrincipal" placeholder="ENTRENA CON NOSOTROS">
-                    </div>
-                    <div class="form-group">
-                        <label>Subtítulo principal</label>
-                        <textarea id="subtituloPrincipal" placeholder="El mejor gimnasio de Bella Vista con instalaciones modernas y profesionales calificados"></textarea>
-                    </div>
-                    <button type="submit" class="admin-btn">Guardar Cambios</button>
-                </form>
-            </section>
-        </main>
-    </div>
+    <!-- Precios -->
+    <section id="precios" class="section">
+        <h2 class="section-title">PLANES Y PRECIOS</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Cuota Libre</h3>
+                <div class="price">$30.000</div>
+                <p>Musculación sin restricciones</p>
+            </div>
+            <div class="price-card">
+                <h3>3 veces por semana</h3>
+                <div class="price">$26.000</div>
+                <p>12 clases mensuales</p>
+            </div>
+            <div class="price-card">
+                <h3>Medio mes</h3>
+                <div class="price">$19.000</div>
+                <p>Acceso por 15 días</p>
+            </div>
+            <div class="price-card">
+                <h3>Semanal</h3>
+                <div class="price">$15.000</div>
+                <p>7 días de acceso</p>
+            </div>
+            <div class="price-card">
+                <h3>Por día</h3>
+                <div class="price">$4.000</div>
+                <p>Acceso por un día</p>
+            </div>
+            <div class="price-card highlight">
+                <h3>G.A.P. + Gym</h3>
+                <div class="price">$30.000</div>
+                <p>Clases grupales + Gym libre</p>
+                <div class="promo-box">
+                    <p>Promoción: Trae un amigo y obtén $2.000 de descuento en cada cuota</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <script src="admin.js"></script>
+    <!-- Contacto -->
+    <section id="contacto" class="section">
+        <h2 class="section-title">CONTACTO</h2>
+        <div class="schedule-card">
+            <h3>VISÍTANOS</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Albert Schweitzer 347, Bella Vista, Buenos Aires</p>
+            <h3>HORARIO DE ATENCIÓN</h3>
+            <p><i class="far fa-clock"></i> Lunes a Viernes: 8:00 - 12:00 / 15:00 - 22:00</p>
+            <p><i class="far fa-clock"></i> Sábados: 9:00 - 12:00</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="logo-container" style="justify-content: center; margin-left: 0;">
+            <img src="logo.png" alt="Top Force Gym Logo" class="logo">
+            <div class="logo-text">
+                <h1>TOP FORCE</h1>
+                <p>GYM & FITNESS</p>
+            </div>
+        </div>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p>&copy; 2023 Top Force Gym. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Efecto de scroll en el header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
-<!-- Añade esto al final del body, antes del footer -->
-<div class="admin-panel">
-  <button id="editBtn" class="edit-btn"><i class="fas fa-cog"></i> Editar Contenido</button>
-  
-  <div id="editModal" class="modal">
-      <div class="modal-content">
-          <span class="close">&times;</span>
-          <h2>Editar Contenido</h2>
-          
-          <div class="tab">
-              <button class="tablinks active" onclick="openTab(event, 'Precios')">Precios</button>
-              <button class="tablinks" onclick="openTab(event, 'Horarios')">Horarios</button>
-              <button class="tablinks" onclick="openTab(event, 'Promos')">Promociones</button>
-          </div>
-          
-          <div id="Precios" class="tabcontent" style="display: block;">
-              <h3>Modificar Precios</h3>
-              <form id="priceForm">
-                  <!-- Campos de precios aquí -->
-              </form>
-          </div>
-          
-          <div id="Horarios" class="tabcontent">
-              <h3>Modificar Horarios</h3>
-              <form id="scheduleForm">
-                  <!-- Campos de horarios aquí -->
-              </form>
-          </div>
-          
-          <div id="Promos" class="tabcontent">
-              <h3>Modificar Promociones</h3>
-              <form id="promoForm">
-                  <!-- Campos de promociones aquí -->
-              </form>
-          </div>
-          
-          <button type="button" id="saveBtn" class="save-btn">Guardar Cambios</button>
-      </div>
-  </div>
-</div>
 </html>
