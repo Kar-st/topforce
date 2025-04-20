@@ -1,3 +1,60 @@
+// Función para manejar la edición de contenido
+function setupAdminPanel() {
+  const editBtn = document.getElementById('editBtn');
+  const modal = document.getElementById('editModal');
+  const closeBtn = document.querySelector('.close');
+  const saveBtn = document.getElementById('saveBtn');
+  
+  // Mostrar/ocultar modal
+  editBtn.addEventListener('click', () => modal.style.display = 'block');
+  closeBtn.addEventListener('click', () => modal.style.display = 'none');
+  
+  // Cerrar al hacer clic fuera del modal
+  window.addEventListener('click', (e) => {
+      if (e.target === modal) modal.style.display = 'none';
+  });
+  
+  // Cargar datos actuales al abrir el modal
+  editBtn.addEventListener('click', loadCurrentData);
+  
+  // Guardar cambios
+  saveBtn.addEventListener('click', saveChanges);
+}
+
+// Función para cargar datos actuales
+function loadCurrentData() {
+  // Implementa según sea necesario
+}
+
+// Función para guardar cambios
+function saveChanges() {
+  // Implementa según sea necesario
+  alert('Cambios guardados correctamente');
+  document.getElementById('editModal').style.display = 'none';
+}
+
+// Función para las pestañas
+function openTab(evt, tabName) {
+  const tabcontent = document.getElementsByClassName('tabcontent');
+  for (let i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = 'none';
+  }
+  
+  const tablinks = document.getElementsByClassName('tablinks');
+  for (let i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(' active', '');
+  }
+  
+  document.getElementById(tabName).style.display = 'block';
+  evt.currentTarget.className += ' active';
+}
+
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+  setupAdminPanel();
+  // Resto de tu código existente...
+});
+
 document.addEventListener('DOMContentLoaded', function() {
   // Mobile menu toggle
   const burger = document.querySelector('.burger');

@@ -129,4 +129,44 @@
 
     <script src="admin.js"></script>
 </body>
+<!-- Añade esto al final del body, antes del footer -->
+<div class="admin-panel">
+  <button id="editBtn" class="edit-btn"><i class="fas fa-cog"></i> Editar Contenido</button>
+  
+  <div id="editModal" class="modal">
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Editar Contenido</h2>
+          
+          <div class="tab">
+              <button class="tablinks active" onclick="openTab(event, 'Precios')">Precios</button>
+              <button class="tablinks" onclick="openTab(event, 'Horarios')">Horarios</button>
+              <button class="tablinks" onclick="openTab(event, 'Promos')">Promociones</button>
+          </div>
+          
+          <div id="Precios" class="tabcontent" style="display: block;">
+              <h3>Modificar Precios</h3>
+              <form id="priceForm">
+                  <!-- Campos de precios aquí -->
+              </form>
+          </div>
+          
+          <div id="Horarios" class="tabcontent">
+              <h3>Modificar Horarios</h3>
+              <form id="scheduleForm">
+                  <!-- Campos de horarios aquí -->
+              </form>
+          </div>
+          
+          <div id="Promos" class="tabcontent">
+              <h3>Modificar Promociones</h3>
+              <form id="promoForm">
+                  <!-- Campos de promociones aquí -->
+              </form>
+          </div>
+          
+          <button type="button" id="saveBtn" class="save-btn">Guardar Cambios</button>
+      </div>
+  </div>
+</div>
 </html>
