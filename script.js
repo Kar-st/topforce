@@ -63,6 +63,62 @@ document.addEventListener('DOMContentLoaded', function() {
                   if (link.getAttribute('href') === `#${sectionId}`) {
                       link.classList.add('active');
                   }
+                  // Función para actualizar la página con los datos del localStorage
+function actualizarContenidoDesdeStorage() {
+  // Actualizar precios
+  if (localStorage.getItem('topForcePrecios')) {
+      const precios = JSON.parse(localStorage.getItem('topForcePrecios'));
+      
+      document.querySelectorAll('.price-card')[0].querySelector('.price').textContent = precios.libre;
+      document.querySelectorAll('.price-card')[1].querySelector('.price').textContent = precios.tresVeces;
+      document.querySelectorAll('.price-card')[2].querySelector('.price').textContent = precios.medioMes;
+      document.querySelectorAll('.price-card')[3].querySelector('.price').textContent = precios.semanal;
+      document.querySelectorAll('.price-card')[4].querySelector('.price').textContent = precios.dia;
+      document.querySelectorAll('.price-card')[5].querySelector('.price').textContent = precios.gap;
+  }
+  
+  // Actualizar horarios
+  if (localStorage.getItem('topForceHorarios')) {
+      const horarios = JSON.parse(localStorage.getItem('topForceHorarios'));
+      
+      document.querySelectorAll('.schedule-card ul')[0].children[0].innerHTML = 
+          `<strong>Lunes a Viernes:</strong> ${horarios.lvManana} / ${horarios.lvTarde}`;
+      document.querySelectorAll('.schedule-card ul')[0].children[1].innerHTML = 
+          `<strong>Sábados:</strong> ${horarios.sabados}`;
+      document.querySelectorAll('.schedule-card ul')[0].children[2].innerHTML = 
+          `<strong>Feriados:</strong> ${horarios.feriados}`;
+          
+      document.querySelectorAll('.schedule-card ul')[1].children[0].innerHTML = 
+          `<strong>Lunes, Miércoles, Viernes:</strong> ${horarios.gap1}`;
+      document.querySelectorAll('.schedule-card ul')[1].children[1].innerHTML = 
+          `<strong>Martes, Jueves:</strong> ${horarios.gap2}`;
+      document.querySelectorAll('.schedule-card ul')[1].children[2].innerHTML = 
+          `<strong>Sábados:</strong> ${horarios.gap3}`;
+  }
+  
+  // Actualizar promociones
+  if (localStorage.getItem('topForcePromociones')) {
+      const promociones = JSON.parse(localStorage.getItem('topForcePromociones'));
+      const promoText = promociones.texto.replace(
+          '$2.000', 
+          promociones.descuento
+      );
+      
+      document.querySelector('.promo-box p').textContent = 'PROMOCIÓN ESPECIAL';
+      document.querySelector('.promo-list li').innerHTML = 
+          `Si traes 1 amigo: <strong>${promociones.descuento} OFF</strong> en tu cuota`;
+  }
+  
+  // Actualizar textos
+  if (localStorage.getItem('topForceTextos')) {
+      const textos = JSON.parse(localStorage.getItem('topForceTextos'));
+      document.querySelector('.hero h2').textContent = textos.titulo;
+      document.querySelector('.hero p').textContent = textos.subtitulo;
+  }
+}
+
+// Ejecutar al cargar la página
+actualizarContenidoDesdeStorage();
               });
           }
       });

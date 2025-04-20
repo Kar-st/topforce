@@ -1,0 +1,138 @@
+/* Estilos específicos para el panel de administración */
+.admin-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.admin-sidebar {
+    width: 250px;
+    background-color: #1a1a1a;
+    color: white;
+    padding: 20px 0;
+}
+
+.admin-main {
+    flex: 1;
+    padding: 30px;
+    background-color: #f5f5f5;
+}
+
+.admin-logo {
+    text-align: center;
+    padding: 0 20px 20px;
+    border-bottom: 1px solid #333;
+}
+
+.admin-logo img {
+    max-width: 80%;
+    margin-bottom: 15px;
+}
+
+.admin-logo h2 {
+    font-size: 18px;
+    color: #ff6b6b;
+}
+
+.admin-menu ul {
+    margin-top: 20px;
+}
+
+.admin-menu li {
+    margin-bottom: 5px;
+}
+
+.admin-menu a {
+    display: block;
+    padding: 12px 20px;
+    color: #ccc;
+    transition: all 0.3s;
+}
+
+.admin-menu a:hover, .admin-menu a:focus {
+    background-color: #333;
+    color: white;
+}
+
+.admin-menu i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.admin-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+.admin-section h2 {
+    color: #ff6b6b;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+.admin-section h3 {
+    color: #333;
+    margin: 25px 0 15px;
+    font-size: 18px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input, .form-group textarea, .form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.admin-btn {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+}
+
+.admin-btn:hover {
+    background-color: #ff5252;
+}
+
+@media (max-width: 768px) {
+    .admin-container {
+        flex-direction: column;
+    }
+    
+    .admin-sidebar {
+        width: 100%;
+    }
+    
+    .admin-menu ul {
+        display: flex;
+        overflow-x: auto;
+    }
+    
+    .admin-menu li {
+        flex-shrink: 0;
+    }
+}
