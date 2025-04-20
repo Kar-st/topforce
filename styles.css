@@ -486,5 +486,11 @@ footer {
   .services-grid, .pricing-grid {
       grid-template-columns: 1fr;
   }
+  /* Añade esto al final de tu archivo styles.css */
+.logo {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 }
   
