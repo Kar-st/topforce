@@ -3,13 +3,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  background-color: #141414;
-  color: #e5e5e5;
-  line-height: 1.4;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
 }
 
 .container {
@@ -21,12 +21,11 @@ body {
 
 h1, h2, h3, h4 {
   margin-bottom: 15px;
-  color: #fff;
+  color: #222;
 }
 
 p {
   margin-bottom: 10px;
-  color: #e5e5e5;
 }
 
 a {
@@ -38,24 +37,22 @@ ul {
   list-style: none;
 }
 
-/* Header estilo Netflix */
+/* Header */
 header {
-  background: linear-gradient(to bottom, rgba(0,0,0,0.7) 10%, transparent);
-  padding: 20px 0;
+  background-color: #1a1a1a;
+  color: white;
+  padding: 15px 0;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  transition: background-color 0.4s;
-}
-
-header.scrolled {
-  background-color: #141414;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .logo-container {
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .logo {
@@ -65,15 +62,14 @@ header.scrolled {
 
 .logo-text h1 {
   margin: 0;
-  font-size: 28px;
-  color: #e50914;
-  font-weight: 700;
+  font-size: 24px;
+  color: #fff;
 }
 
 .logo-text p {
   margin: 0;
   font-size: 14px;
-  color: #e5e5e5;
+  color: #ccc;
 }
 
 nav {
@@ -91,221 +87,176 @@ nav {
 }
 
 .nav-links a {
-  color: #e5e5e5;
+  color: white;
   font-weight: 500;
   transition: color 0.3s;
-  font-size: 14px;
 }
 
 .nav-links a:hover {
-  color: #e50914;
+  color: #ff6b6b;
 }
 
 .burger {
   display: none;
   cursor: pointer;
   font-size: 24px;
-  color: #fff;
 }
 
-/* Hero Section estilo Netflix */
+/* Hero Section */
 .hero {
-  background: linear-gradient(to top, #141414 0%, transparent 50%), 
-              linear-gradient(to bottom, #141414 0%, transparent 20%), 
-              url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('plantilla-pagina-aterrizaje-plana-gimnasio-ejercicio_23-2149557500.avif') no-repeat center center/cover;
   height: 100vh;
   display: flex;
   align-items: center;
-  text-align: left;
+  text-align: center;
+  color: white;
   padding-top: 80px;
-  position: relative;
-}
-
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 14rem;
-  background: linear-gradient(180deg, transparent, rgba(20, 20, 20, 0.6), #141414);
-}
-
-.hero .container {
-  z-index: 1;
-  margin-left: 5%;
-  width: 40%;
 }
 
 .hero h2 {
-  font-size: 3rem;
+  font-size: 48px;
   margin-bottom: 20px;
-  font-weight: 700;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero p {
-  font-size: 1.2rem;
+  font-size: 20px;
   margin-bottom: 30px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .cta-button {
   display: inline-block;
-  background-color: #e50914;
+  background-color: #ff6b6b;
   color: white;
   padding: 12px 30px;
-  border-radius: 4px;
+  border-radius: 30px;
   font-weight: bold;
   transition: background-color 0.3s;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  border: none;
-  cursor: pointer;
 }
 
 .cta-button:hover {
-  background-color: #f40612;
+  background-color: #ff5252;
 }
 
-/* Services Section estilo Netflix */
+/* Services Section */
 .services {
   padding: 80px 0;
-  background-color: #141414;
-  position: relative;
+  background-color: white;
 }
 
 .services h2 {
-  font-size: 1.8rem;
-  margin-bottom: 30px;
-  padding-left: 20px;
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 36px;
 }
 
 .services-grid {
-  display: flex;
-  overflow-x: auto;
-  padding: 20px 0;
-  scrollbar-width: none; /* Firefox */
-}
-
-.services-grid::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
 }
 
 .service-card {
-  min-width: 250px;
-  margin-right: 15px;
-  transition: transform 0.3s;
-  position: relative;
-  border-radius: 4px;
-  overflow: hidden;
+  text-align: center;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .service-card:hover {
-  transform: scale(1.05);
-  z-index: 1;
-}
-
-.service-card img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-}
-
-.service-info {
-  padding: 15px;
-  background-color: #2d2d2d;
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .service-card i {
-  font-size: 30px;
-  color: #e50914;
-  margin-bottom: 10px;
-  display: block;
+  font-size: 50px;
+  color: #ff6b6b;
+  margin-bottom: 20px;
 }
 
 .service-card h3 {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
+  font-size: 24px;
+  margin-bottom: 15px;
 }
 
-/* Schedule Section estilo Netflix */
+/* Schedule Section */
 .schedule {
   padding: 80px 0;
-  background-color: #141414;
+  background-color: #f5f5f5;
 }
 
 .schedule h2 {
-  font-size: 1.8rem;
-  margin-bottom: 30px;
-  padding-left: 20px;
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 36px;
 }
 
 .schedule-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  gap: 30px;
 }
 
 .schedule-card {
-  background-color: #2d2d2d;
-  padding: 20px;
-  border-radius: 4px;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .schedule-card h3 {
-  color: #e50914;
-  margin-bottom: 15px;
-  font-size: 1.2rem;
+  color: #ff6b6b;
+  margin-bottom: 20px;
+  font-size: 24px;
 }
 
 .schedule-card ul li {
   margin-bottom: 10px;
   padding-left: 20px;
   position: relative;
-  color: #e5e5e5;
 }
 
 .schedule-card ul li::before {
   content: "•";
-  color: #e50914;
+  color: #ff6b6b;
   position: absolute;
   left: 0;
 }
 
-/* Pricing Section estilo Netflix */
+/* Pricing Section */
 .pricing {
   padding: 80px 0;
-  background-color: #141414;
+  background-color: white;
 }
 
 .pricing h2 {
-  font-size: 1.8rem;
-  margin-bottom: 30px;
-  padding-left: 20px;
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 36px;
 }
 
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  gap: 25px;
 }
 
 .price-card {
-  background-color: #2d2d2d;
-  padding: 20px;
-  border-radius: 4px;
-  transition: all 0.3s;
-  position: relative;
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .price-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .price-card.highlight {
-  border: 1px solid #e50914;
+  border: 2px solid #ff6b6b;
+  position: relative;
 }
 
 .price-card.highlight::after {
@@ -313,68 +264,77 @@ nav {
   position: absolute;
   top: -10px;
   right: 20px;
-  background-color: #e50914;
+  background-color: #ff6b6b;
   color: white;
   padding: 5px 10px;
-  border-radius: 4px;
+  border-radius: 20px;
   font-size: 12px;
   font-weight: bold;
 }
 
 .price-card h3 {
-  font-size: 1.1rem;
+  font-size: 20px;
   margin-bottom: 15px;
 }
 
 .price {
-  font-size: 1.5rem;
+  font-size: 28px;
   font-weight: bold;
-  color: #e50914;
+  color: #ff6b6b;
   margin-bottom: 15px;
 }
 
-.promo {
-  font-size: 14px;
-  color: #e50914;
-  font-weight: bold;
+.promo-box {
+  background-color: rgba(255, 107, 107, 0.1);
+  padding: 15px;
+  border-left: 4px solid #ff6b6b;
   margin-top: 15px;
+  border-radius: 8px;
+}
+
+.promo-box p {
+  color: #ff6b6b;
+  font-weight: bold;
+  margin: 0;
 }
 
 .payment-info {
   margin-top: 40px;
   padding: 20px;
-  background-color: #2d2d2d;
-  border-radius: 4px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  text-align: center;
 }
 
-/* Contact Section estilo Netflix */
+/* Contact Section */
 .contact {
   padding: 80px 0;
-  background-color: #141414;
+  background-color: #f5f5f5;
 }
 
 .contact h2 {
-  font-size: 1.8rem;
-  margin-bottom: 30px;
-  padding-left: 20px;
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 36px;
 }
 
 .contact-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  gap: 50px;
 }
 
 .contact-info {
-  background-color: #2d2d2d;
+  background-color: white;
   padding: 30px;
-  border-radius: 4px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .contact-info h3 {
-  color: #e50914;
+  color: #ff6b6b;
   margin-bottom: 20px;
-  font-size: 1.2rem;
+  font-size: 24px;
 }
 
 .contact-info p {
@@ -385,13 +345,14 @@ nav {
 
 .contact-info i {
   margin-right: 10px;
-  color: #e50914;
+  color: #ff6b6b;
 }
 
 .contact-form {
-  background-color: #2d2d2d;
+  background-color: white;
   padding: 30px;
-  border-radius: 4px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .form-group {
@@ -402,11 +363,9 @@ nav {
 .form-group textarea {
   width: 100%;
   padding: 12px;
-  border: 1px solid #444;
-  border-radius: 4px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
   font-size: 16px;
-  background-color: #444;
-  color: #fff;
 }
 
 .form-group textarea {
@@ -415,28 +374,26 @@ nav {
 }
 
 .submit-btn {
-  background-color: #e50914;
+  background-color: #ff6b6b;
   color: white;
   border: none;
   padding: 12px 30px;
-  border-radius: 4px;
+  border-radius: 30px;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s;
   width: 100%;
-  font-size: 1rem;
 }
 
 .submit-btn:hover {
-  background-color: #f40612;
+  background-color: #ff5252;
 }
 
-/* Footer estilo Netflix */
+/* Footer */
 footer {
-  background-color: #000;
-  color: #737373;
+  background-color: #1a1a1a;
+  color: white;
   padding: 40px 0 20px;
-  border-top: 8px solid #222;
 }
 
 .footer-content {
@@ -457,7 +414,7 @@ footer {
 }
 
 .footer-logo h3 {
-  color: #e50914;
+  color: white;
   margin: 0;
 }
 
@@ -475,11 +432,10 @@ footer {
   border-radius: 50%;
   margin-left: 10px;
   transition: background-color 0.3s;
-  color: #fff;
 }
 
 .social-links a:hover {
-  background-color: #e50914;
+  background-color: #ff6b6b;
 }
 
 .copyright {
@@ -497,7 +453,7 @@ footer {
       left: -100%;
       width: 100%;
       height: calc(100vh - 90px);
-      background-color: #141414;
+      background-color: #1a1a1a;
       flex-direction: column;
       align-items: center;
       justify-content: center;
@@ -517,16 +473,11 @@ footer {
   }
 
   .hero h2 {
-      font-size: 2rem;
+      font-size: 36px;
   }
 
   .hero p {
-      font-size: 1rem;
-  }
-
-  .hero .container {
-      width: 80%;
-      margin-left: 5%;
+      font-size: 18px;
   }
 }
 
@@ -535,7 +486,11 @@ footer {
       font-size: 20px;
   }
 
-  .services-grid {
+  .hero h2 {
+      font-size: 28px;
+  }
+
+  .services-grid, .pricing-grid {
       grid-template-columns: 1fr;
   }
 }
